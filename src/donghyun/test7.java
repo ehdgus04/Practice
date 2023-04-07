@@ -1,3 +1,5 @@
+package donghyun;
+
 public class test7 {
     public static void main(String[] args) {
         Test7 t7 = new Test7();

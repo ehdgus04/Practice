@@ -1,3 +1,5 @@
+package donghyun;
+
 public class test {
     public static void main(String[] args) {
         MyMath mm = new MyMath();

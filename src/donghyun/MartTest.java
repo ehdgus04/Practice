@@ -1,3 +1,5 @@
+package donghyun;
+
 import java.util.Scanner;
 
 public class MartTest {
