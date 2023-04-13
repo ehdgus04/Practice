@@ -4,6 +4,7 @@ public class FighterTest {
     public static void main(String[] args) {
         Fighter f = new Fighter();
         Fightable f2 = f.getFightable();
+        f2.attack(f2);
 
 //        Unit2 u = new Fighter();
 //        Fightable f = new Fighter();
