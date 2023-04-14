@@ -1,4 +1,4 @@
-package donghyun;
+package donghyun.test1;
 
 import java.util.Scanner;
 
