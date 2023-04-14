@@ -24,6 +24,12 @@ public class LoginMain {
 
                         UserInfo userInfo = new UserInfo(newName, newBirthDate, newId, newPw);
 
+                        if(userList.newUser(userInfo)){
+                            System.out.println("[ 회원가입 ] 회원가입에 성공했습니다 !");
+                        } else {
+                            System.out.println("[ 회원가입 ] 회원가입에 실패했습니다.");
+                        }
+
                         break;
                     case 2:
                         System.out.print("[ 회원탈퇴 ] 탈퇴하실 아이디를 입력해주세요. >> ");
@@ -41,7 +47,8 @@ public class LoginMain {
                     case 3:
                         System.out.print("[ 회원정보 ] 조회할 아이디를 입력해주세요. >> ");
                         String checkUser = scanner.next();
-
+                        System.out.print("[ 회원정보 ] 비밀번호를 입력해주세요. >> ");
+                        String checkUserPw = scanner.next();
 
 
                         break;

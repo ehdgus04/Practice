@@ -25,5 +25,15 @@ public class UserList {
             return false;
         }
     }
-    public
+    public boolean checkId(String checkId, String checkUserPw){
+        try {
+            for(int i=0; i<userList.size(); i++){
+                if(userList.get(i).getId().equals(checkId) && userList.get(i).getPw().equals(checkUserPw)){
+                    return true;
+                }
+            } return false;
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

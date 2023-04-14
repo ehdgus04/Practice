@@ -30,7 +30,7 @@ public class UserInfo {
     public String getPw(){
         return pw;
     }
-
+    UserInfo(){}
     UserInfo(String name, int birthDate, String id, String pw){
         this.name = name;
         this.birthDate = birthDate;
