@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<User> userList = new ArrayList<>();
+    private ArrayList<Book> bookList = new ArrayList<>();
 
     public boolean join(User user){
         try {
@@ -23,6 +24,14 @@ public class Library {
             } return false;
         } catch (Exception e){
             System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    public boolean join(Book book){
+        try {
+            bookList.add(book);
+            return true;
+        } catch (Exception e){
             return false;
         }
     }
