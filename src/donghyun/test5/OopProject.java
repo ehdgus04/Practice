@@ -20,7 +20,7 @@ public class OopProject {
                     int number = scanner.nextInt();
                     switch (number) {
                         case 1:
-                            System.out.print("회원가입은 '1'\n회원탈퇴는 '2'\n회원정보확인은 '3'을 입력해주세요. >> ");
+                            System.out.println("회원가입은 '1', 회원탈퇴는 '2', 회원정보확인은 '3' 을 입력해주세요.");
                             int number2 = scanner.nextInt();
                             switch (number2) {
                                 case 1:
@@ -50,8 +50,8 @@ public class OopProject {
                                     System.out.print("[ 회원탈퇴 ] 비밀번호를 입력해주세요. >> ");
                                     String deletePw = scanner.next();
 
-                                    if(library.removeUser(deleteId/*deleteUserNumber*/, deletePw)){
-                                        System.out.println("[ 시스템 ] 회원탈퇴를 성공됐습니다.");
+                                    if(library.removeUser(deleteId, deleteUserNumber, deletePw)){
+                                        System.out.println("[ 시스템 ] 회원탈퇴를 성공했습니다.");
                                     } else {
                                         System.out.println("[ 시스템 ] 회원탈퇴를 실패했습니다.");
                                     }
@@ -63,6 +63,13 @@ public class OopProject {
                                     System.out.print("[ 회원정보확인 ] 비밀번호를 입력해주세요. >> ");
                                     String infoUserPw = scanner.next();
 
+                                    User findUser = library.myInfo(infoUserId, infoUserPw);
+                                    if(findUser==null){
+                                        System.out.println("[ 회원정보확인 ] 유저정보가 없습니다.");
+                                    } else {
+                                        System.out.print(findUser.toString());
+                                    }
+
                                     break;
 
                                 default:
@@ -71,7 +78,7 @@ public class OopProject {
                             break;
 
                         case 2:
-                            System.out.print("도서 등록은 '1'\n도서 대출은 '2'\n전체 도서목록 조회는 '3'을 입력해주세요. >> ");
+                            System.out.println("도서 등록은 '1'\n도서 대여은 '2'\n전체 도서목록 조회는 '3'\n등록된 도서 삭제는 '4' 를 입력해주세요.");
                             int number3 = scanner.nextInt();
                             switch(number3){
                                 case 1:
@@ -95,11 +102,38 @@ public class OopProject {
                                     break;
 
                                 case 2:
+                                    System.out.print("[ 도서대여 ] 책제목을 입력해주세요. >> ");
+                                    String borrowTitle = scanner.next();
+                                    System.out.print("[ 도서대여 ] 저자명을 입력해주세요. >> ");
+                                    String borrowAuthor = scanner.next();
+                                    System.out.print("[ 도서대여 ] 아이디를 입력해주세요. >> ");
+                                    String borrowId = scanner.next();
+                                    System.out.print("[ 도서대여 ] 비밀번호를 입력해주세요. >> ");
+                                    String borrowPw = scanner.next();
+
+                                    User use = new User(borrowId, borrowPw);
+                                    if(library.borrowBook(use, borrowTitle, borrowAuthor)){
+                                        System.out.println("[ 도서대여 ] 도서대여를 성공했습니다.");
+                                    }
                                     break;
 
                                 case 3:
+                                    System.out.println(library.lookUpBookList());
                                     break;
 
+                                case 4:
+                                    System.out.print("[ 도서삭제 ] 책제목을 입력해주세요. >> ");
+                                    String deleteTitle = scanner.next();
+                                    System.out.print("[ 도서삭제 ] 저자명을 입력해주세요. >> ");
+                                    String deleteAuthor = scanner.next();
+
+                                    if(library.removeBook(deleteTitle, deleteAuthor)){
+                                        System.out.println("[ 시스템 ] 도서삭제를 성공했습니다.");
+                                    } else {
+                                        System.out.println("[ 시스템 ] 도서정보가 일치하지 않습니다.");
+                                    }
+
+                                    break;
                                 default:
                                     throw new Exception();
                             }

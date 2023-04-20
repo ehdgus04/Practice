@@ -50,13 +50,18 @@ public class User {
         this.userNumber = userNumber;
         this.createTime = createTime;
     }
+    User(String id, String pw){
+        this.id = id;
+        this.pw = pw;
+    }
 
     public String toString(){
         return "--- 유저 정보 ---" +
-                "\n이름 : "+name+
-                "\n아이디 : "+id+
-                "\n비밀번호 : "+pw+
-                "\n생성일 : "+createTime.format(DateTimeFormatter.ofPattern("yyy-MM-dd"))+
+                "\n이름      "+name+
+                "\n아이디    "+id+
+                "\n비밀번호  "+pw+
+                "\n고유번호  "+userNumber+
+                "\n생성일   "+createTime.format(DateTimeFormatter.ofPattern("yyy-MM-dd"))+
                 "\n";
     }
 
