@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class test3 {
     public static void main(String[] args) {
         Random random = new Random();
-        int answer = random.nextInt(100);
+        int answer = random.nextInt(100)+1;
         System.out.println("정답을 미리 보려면 0을 입력하세요");
         int input_number;
         int repeat_count = 0;
